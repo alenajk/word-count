@@ -1,9 +1,13 @@
-# Counts number of times a word occurs in the text file. 
+# Counts number of times a word occurs in the text file 
 # Accounts for punctuation and case
+# Can call specified file from command line
+
+import sys
 
 words_and_counts = {}
 
-text_file = open("test.txt")
+text_filename = sys.argv[1]
+text_file = open(text_filename)
 
 for line in text_file:
     words_in_line = line.rstrip().split(" ")
