@@ -18,5 +18,5 @@ for line in text_file:
     for word in lower_words:
         words_and_counts[word] += 1
 
-for word, count in words_and_counts.items():
-    print word, count
+for word, count in words_and_counts.most_common():
+    print word, count 
