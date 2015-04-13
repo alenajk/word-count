@@ -1,13 +1,17 @@
-# format file --> strip white space and separate by spaces
-# for x in range(len(line))
-# check to see if word in dictionary already
-# if not in dictionary, add it with a value of 1
-# dictionary[word] += 1
-# print each unique key and its value / count
+# Counts number of times a word occurs in the text file. 
+# Does not account for punctuation.
 
 words_and_counts = {}
 
 text_file = open("test.txt")
+
 for line in text_file:
     words_in_line = line.rstrip().split(" ")
-    print words_in_line
+    for word in words_in_line:
+        if word in words_and_counts:
+            words_and_counts[word] += 1
+        else:
+            words_and_counts[word] = 1
+
+for word, count in words_and_counts.items():
+    print word, count
