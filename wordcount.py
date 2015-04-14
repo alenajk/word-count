@@ -18,5 +18,27 @@ for line in text_file:
     for word in lower_words:
         words_and_counts[word] += 1
 
-for word, count in words_and_counts.most_common():
-    print word, count 
+#Initializing new dictionary
+new_dict = {}
+
+#Made count the keys to the dictionary
+#Made all the words with that count into a list of strings as the value
+for word_count_tuple in words_and_counts.most_common():
+    word, number = list(word_count_tuple)
+    if number in new_dict:
+        new_dict[number].append(word)
+    else:
+        new_dict[number] = [word]
+
+#Sorted each list of values (words) so that they are alphabetized
+key_list = new_dict.keys()
+for key in key_list:
+    new_dict[key] = sorted(new_dict[key])
+
+#Sorted the key (number) list so that it reads highest to lowest
+sorted_key_list = sorted(key_list)[::-1]
+
+#Print output
+for i in sorted_key_list:
+    for w in new_dict[i]:
+        print w, i
